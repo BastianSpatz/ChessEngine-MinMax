@@ -139,7 +139,7 @@ class Gamestate(object):
 			endSq = [row - 2, column] 
 			movedPiece = self.board[row][column]
 			capturedPiece = self.board[row - 2][column]
-			move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+			move = [startSq, endSq, movedPiece, capturedPiece]
 			moves.append(move)
 
 		if (turn == "w" and self.board[row - 1][column] == "--"):
@@ -147,7 +147,7 @@ class Gamestate(object):
 			endSq = [row - 1, column] 
 			movedPiece = self.board[row][column]
 			capturedPiece = self.board[row - 1][column]
-			move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+			move = [startSq, endSq, movedPiece, capturedPiece]
 			moves.append(move)
 
 		#capture to the right
@@ -156,7 +156,7 @@ class Gamestate(object):
 			endSq = [row - 1, column + 1] 
 			movedPiece = self.board[row][column]
 			capturedPiece = self.board[row - 1][column + 1]
-			move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+			move = [startSq, endSq, movedPiece, capturedPiece]
 			moves.append(move)
 
 		#capture to the left
@@ -165,7 +165,7 @@ class Gamestate(object):
 			endSq = [row - 1, column - 1] 
 			movedPiece = self.board[row][column]
 			capturedPiece = self.board[row - 1][column - 1]
-			move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+			move = [startSq, endSq, movedPiece, capturedPiece]
 			moves.append(move)
 		'''
 		Logic for all the black pawns
@@ -175,7 +175,7 @@ class Gamestate(object):
 			endSq = [row + 2, column] 
 			movedPiece = self.board[row][column]
 			capturedPiece = self.board[row + 2][column]
-			move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+			move = [startSq, endSq, movedPiece, capturedPiece]
 			moves.append(move)
 
 		if (turn == "b" and self.board[row + 1][column] == "--"):
@@ -183,7 +183,7 @@ class Gamestate(object):
 			endSq = [row + 1, column] 
 			movedPiece = self.board[row][column]
 			capturedPiece = self.board[row + 1][column]
-			move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+			move = [startSq, endSq, movedPiece, capturedPiece]
 			moves.append(move) 
 
 		#capture to the right(looking at the board)
@@ -192,7 +192,7 @@ class Gamestate(object):
 			endSq = [row + 1, column + 1] 
 			movedPiece = self.board[row][column]
 			capturedPiece = self.board[row + 1][column + 1]
-			move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+			move = [startSq, endSq, movedPiece, capturedPiece]
 			moves.append(move)
 
 		#capture to the left
@@ -201,7 +201,7 @@ class Gamestate(object):
 			endSq = [row + 1, column - 1] 
 			movedPiece = self.board[row][column]
 			capturedPiece = self.board[row + 1][column - 1]
-			move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+			move = [startSq, endSq, movedPiece, capturedPiece]
 			moves.append(move)
 
 	def generate_rook_moves(self, row, column, moves):
@@ -215,7 +215,7 @@ class Gamestate(object):
 				endSq = [rowCounter + 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter + 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				rowCounter += 1
 				## black capture downwards
@@ -224,7 +224,7 @@ class Gamestate(object):
 				endSq = [rowCounter + 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter + 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				##white capture downwards
@@ -233,7 +233,7 @@ class Gamestate(object):
 				endSq = [rowCounter + 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter + 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -248,7 +248,7 @@ class Gamestate(object):
 				endSq = [rowCounter - 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter - 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				rowCounter -= 1
 				##black captures upwards
@@ -257,7 +257,7 @@ class Gamestate(object):
 				endSq = [rowCounter - 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter - 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			elif (turn == "w" and (rowCounter - 1) >= 0 and self.board[rowCounter - 1][column][0] == "b"):
@@ -265,7 +265,7 @@ class Gamestate(object):
 				endSq = [rowCounter - 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter - 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -280,7 +280,7 @@ class Gamestate(object):
 				endSq = [row, colCounter + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter + 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				colCounter += 1
 				## black capture to the right
@@ -289,7 +289,7 @@ class Gamestate(object):
 				endSq = [row, colCounter + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter + 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## white capture to the right
@@ -298,7 +298,7 @@ class Gamestate(object):
 				endSq = [row, colCounter + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter + 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -313,7 +313,7 @@ class Gamestate(object):
 				endSq = [row, colCounter - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter - 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				colCounter -= 1
 				## black capture to the left
@@ -322,7 +322,7 @@ class Gamestate(object):
 				endSq = [row, colCounter - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter - 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## white capturing to the left
@@ -331,7 +331,7 @@ class Gamestate(object):
 				endSq = [row, colCounter - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter - 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -362,14 +362,14 @@ class Gamestate(object):
 				endSq = Sq
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[Sq[0]][Sq[1]]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 			if (turn == "b" and (self.board[Sq[0]][Sq[1]][0] == "w" or self.board[Sq[0]][Sq[1]] == "--")):
 				startSq = [row, column]
 				endSq = Sq
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[Sq[0]][Sq[1]]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 
 	def generate_bishop_moves(self, row, column, moves):
@@ -386,7 +386,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				counterCol += 1
 				counterRow += 1
@@ -396,7 +396,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with white
@@ -405,7 +405,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -423,7 +423,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				counterCol += 1
 				counterRow -= 1
@@ -433,7 +433,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with white
@@ -442,7 +442,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -459,7 +459,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				counterCol -= 1
 				counterRow += 1
@@ -469,7 +469,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with white
@@ -478,7 +478,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -495,7 +495,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				counterCol -= 1
 				counterRow -= 1
@@ -505,7 +505,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with white
@@ -514,7 +514,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -538,7 +538,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with black
@@ -547,7 +547,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with white
@@ -556,7 +556,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -574,7 +574,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with black
@@ -583,7 +583,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with white
@@ -592,7 +592,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol + 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -609,7 +609,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with black
@@ -618,7 +618,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with white
@@ -627,7 +627,7 @@ class Gamestate(object):
 				endSq = [counterRow + 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow + 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -644,7 +644,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with black
@@ -653,7 +653,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## capture with white
@@ -662,7 +662,7 @@ class Gamestate(object):
 				endSq = [counterRow - 1 , counterCol - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[counterRow - 1][counterCol - 1] 
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -676,7 +676,7 @@ class Gamestate(object):
 				endSq = [rowCounter + 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter + 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## black capture downwards
@@ -685,7 +685,7 @@ class Gamestate(object):
 				endSq = [rowCounter + 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter + 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				##white capture downwards
@@ -694,7 +694,7 @@ class Gamestate(object):
 				endSq = [rowCounter + 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter + 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -709,7 +709,7 @@ class Gamestate(object):
 				endSq = [rowCounter - 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter - 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				##black captures upwards
@@ -718,7 +718,7 @@ class Gamestate(object):
 				endSq = [rowCounter - 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter - 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			elif (turn == "w" and (rowCounter - 1) >= 0 and self.board[rowCounter - 1][column][0] == "b"):
@@ -726,7 +726,7 @@ class Gamestate(object):
 				endSq = [rowCounter - 1, column] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[rowCounter - 1][column]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -741,7 +741,7 @@ class Gamestate(object):
 				endSq = [row, colCounter + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter + 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## black capture to the right
@@ -750,7 +750,7 @@ class Gamestate(object):
 				endSq = [row, colCounter + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter + 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## white capture to the right
@@ -759,7 +759,7 @@ class Gamestate(object):
 				endSq = [row, colCounter + 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter + 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:
@@ -774,7 +774,7 @@ class Gamestate(object):
 				endSq = [row, colCounter - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter - 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## black capture to the left
@@ -783,7 +783,7 @@ class Gamestate(object):
 				endSq = [row, colCounter - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter - 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 				## white capturing to the left
@@ -792,7 +792,7 @@ class Gamestate(object):
 				endSq = [row, colCounter - 1] 
 				movedPiece = self.board[row][column]
 				capturedPiece = self.board[row][colCounter - 1]
-				move = [startSq, endSq, movedPiece, capturedPiece, self.isCastleMove]
+				move = [startSq, endSq, movedPiece, capturedPiece]
 				moves.append(move)
 				collison = True
 			else:

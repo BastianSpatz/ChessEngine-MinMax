@@ -29,7 +29,7 @@ def min_max_search(depth, gs, playerColor, alpha = -10**16, beta = 10**16, isMax
 	bestMoveValue = (-10**16 if isMaximizingPlayer else 10**16)
 	for move in moves:
 		gs.make_move(move)
-		value = calculate_best_move_AB(depth - 1, gs, playerColor, alpha, beta, not isMaximizingPlayer)[0]
+		value = min_max_search(depth - 1, gs, playerColor, alpha, beta, not isMaximizingPlayer)[0]
 
 		if isMaximizingPlayer:
 			if value > bestMoveValue:
